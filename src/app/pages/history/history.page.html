@@ -1,0 +1,63 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button default-href="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="primary">
+      <ion-menu-button auto-hide="false"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>History</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">History</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="filter">
+    <ion-button fill="clear" (click)="applyFilter('all')">All</ion-button>
+    <ion-button fill="clear" (click)="applyFilter('pending')">Pending</ion-button>
+    <ion-button fill="clear" (click)="applyFilter('cancelled')">Cancelled</ion-button>
+    <ion-button fill="clear" (click)="applyFilter('confirmed')">Confirmed</ion-button>
+  </div>
+
+
+  <div class="container" *ngIf="!loading">
+    <!-- <div class="cart-container"> -->
+      <ion-list lines="full" *ngFor="let order of filteredOrders">
+        <div class="info-top">
+          <h2 class="date">Date: {{ order.order_date }}</h2>
+          <ion-badge class="badge" slot="end" [color]="
+            order.order_status === 'pending' ? 'warning' :
+            order.order_status === 'cancelled' ? 'danger' :
+            order.order_status === 'confirmed' ? 'success' : 'primary'">
+            {{ order.order_status }}
+        </ion-badge>
+        </div>
+
+          <ion-item *ngFor="let item of order.order_items">
+            <ion-avatar slot="start">
+              <img [src]="item.product.image" />
+            </ion-avatar>
+            <ion-label>
+              <h2>{{ item.product.product_name }} x {{item.quantity}}</h2>
+              <p>Total : {{ item.product.product_price * item.quantity}}</p>
+            </ion-label>
+          </ion-item>
+        <p>Total :</p>
+        <div class="info-bottom">
+          <p>Sub Total : </p>
+          <p class="value">Rp.{{order.total_amount - (order.shipping_option === 'delivery' ? 10000 : 0)}}</p>
+        </div>
+        <div class="info-bottom">
+          <p>Shipping Fee : </p>
+          <p class="value">{{order.shipping_option === 'delivery' ? 10000 : 0}}</p>
+        </div>
+        <p class="total-price">Rp.{{order.total_amount}}</p>
+      </ion-list>
+    <!-- </div> -->
+  </div>
+</ion-content>

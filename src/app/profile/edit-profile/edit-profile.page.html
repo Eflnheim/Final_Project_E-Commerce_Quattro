@@ -1,0 +1,59 @@
+<ion-content [fullscreen]="true">
+  <ion-header slot="fixed" class="ion-no-border">
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button default-href="/profile/profile-detail"></ion-back-button>
+      </ion-buttons>
+      <ion-title>Edit Profile</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="fill">
+  </div>
+  
+  <ion-card class="profile-card">
+    <ion-avatar class="profile-avatar">
+      <img src="./../../../assets/blank-profile-picture.png" />
+    </ion-avatar>
+
+    <ion-card-content>
+
+      <form [formGroup]="form">
+
+        <ion-input 
+        type="name"
+        placeholder="Username"
+        formControlName="username"
+        errorText="Please enter your name">
+        </ion-input>
+
+        <ion-input 
+        type="email" 
+        placeholder="Email address"
+        formControlName="email"
+        [errorText]="form.get('email')?.hasError('email') ? '* Please enter a valid email address' : '* Please enter your email'">
+        </ion-input>
+
+        <ion-input 
+        type="name" 
+        placeholder="Phone Number"
+        formControlName="phone_number"
+        errorText="Please enter your phone number">
+        </ion-input>
+
+        <ion-input 
+        type="name" 
+        placeholder="Address"
+        formControlName="address"
+        errorText="Please enter your address">
+        </ion-input>
+
+        <ion-button (click)="onSubmit()">Edit Profile</ion-button>
+
+      </form>
+
+    </ion-card-content>
+
+  </ion-card>
+
+</ion-content>

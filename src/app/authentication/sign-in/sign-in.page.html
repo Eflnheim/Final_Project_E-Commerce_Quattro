@@ -1,0 +1,49 @@
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+  </ion-header>
+
+  <div class="container">
+
+    <div class="logo">
+      <img src="./../../../assets/App_logo.png">
+    </div>
+
+    <div class="content">
+      <strong>Sign In</strong>
+      <p>Enter your email to sign in for this app</p>
+
+      <div class="form">
+        <form [formGroup]="form">
+
+          <ion-input 
+            type="email" 
+            placeholder="email@domain.com" 
+            formControlName="email"
+            [errorText]="form.get('email')?.hasError('email') ? '* Please enter a valid email address' : '* Please enter your email'"
+            >
+          </ion-input>
+
+          <ion-input 
+            type="password" 
+            placeholder="Password" 
+            formControlName="password"
+            [errorText]="form.get('password')?.hasError('minlength') ? '* Password must be atleast 8 characters long' : '* Please enter your password'">
+            <ion-input-password-toggle slot="end" color="dark"></ion-input-password-toggle>
+          </ion-input>
+          
+          <br />
+  
+          <ion-button class="button-1" expand="block" (click)="onSubmit()">Sign In</ion-button>
+  
+          <p>Don't have an account? <a routerLink="/sign-up" style="color: black;">Sign Up</a></p>
+
+        </form>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+</ion-content>

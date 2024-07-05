@@ -1,0 +1,26 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button default-href="/checkout"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="T1">Payment</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card class="card-1">
+    <ion-card-header>
+      <ion-card-subtitle>Finish before</ion-card-subtitle>
+      <ion-card-title>21 June 2024, 09:56 WIB</ion-card-title>
+    </ion-card-header>
+  </ion-card>
+
+  <ion-card class="card-2">
+    <ion-item lines="none" class="item">
+      <ion-icon name="information-circle-outline" slot="start" class="icon"></ion-icon>
+      <ion-label class="sub-1">You can use any supported e-wallet or mobile banking apps</ion-label>
+    </ion-item>
+  </ion-card>
+
+  <ion-button expand="full" (click)="checkout()">Proceed to Pay</ion-button>
+</ion-content>

@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+* {
+  font-family: "Inter", sans-serif;
+}
+
+ion-content {
+  --background: #FFFFFF;
+}
+
+ion-toolbar {
+  --color: black;
+  --background: #FFFFFF;
+}
+
+.container {
+  text-align: center;
+  position: absolute;
+  height: 70%;
+  right: 5%;
+  left: 5%;
+  top: 9%;
+
+  .cart-container {
+    height: 70%;
+    overflow-y: scroll;
+
+    .empty-cart {
+      height: 90%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #c7c7c7;
+
+      ion-icon {
+        font-size: 8rem;
+      }
+
+      p {
+        font-size: 1.8rem;
+      }
+    }
+
+  }
+
+  h4 {
+    color: black;
+    text-align: start;
+    margin-left: 5px;
+    margin-bottom: 0px;
+    font-size: 1.2rem;
+  }
+
+  .actions {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #e2e2e2;
+    border-radius: 2.5rem;
+    margin-right: 8px;
+
+    ion-note {
+      margin: 5px 0;
+      color: #000000;
+      opacity: 1;
+      font-weight: 700;
+    }
+
+    ion-button {
+      --background: #ffffff;
+      --padding-start: 2px;
+      --padding-end: 2px;
+      --padding-top: 2px;
+      --padding-bottom: 2px;
+      width: 2rem;
+      height: 2rem;
+    }
+  }
+
+  ion-item-options, ion-item-option {
+    background: #ffffff;
+  }
+
+  ion-list {
+    background: #ffffff;
+  }
+
+  ion-item {
+    --background: #ffffff;
+    --color: black;
+    --padding-bottom: 10px;
+    --padding-top: 10px;
+    --padding-start: 5px;
+  }
+
+  ion-label {
+    margin-top: -1.35rem;
+  }
+
+  ion-avatar {
+    width: 80px;
+    height: 78px;
+    position: relative;
+    top: 5%;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 8px;
+    }
+  }
+
+  p {
+    font-size: 0.95rem;
+  }
+  
+  h2 {
+    font-size: 1.05rem;
+  }
+
+}
+
+.container-2 {
+  text-transform: initial;
+  position: absolute;
+  bottom: 7%;
+  right: 7%;
+  left: 7%;
+
+  p {
+    font-size: 1rem;
+    color: black;
+    margin-bottom: 0px;
+  }
+
+  h2 {
+    margin-top: 8px;
+    color: black;
+    font-size: large;
+  }
+
+  .button-bottom {
+    --background: black;
+    --color: white;
+    --border-radius: 8px;
+    --box-shadow: none;
+    text-transform: initial;
+  }
+}
+

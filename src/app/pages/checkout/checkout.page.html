@@ -1,0 +1,95 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button default-href="/cart"></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="primary">
+      <ion-menu-button auto-hide="false"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Checkout</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-card class="card-1" style="margin-bottom: 0;">
+    <ion-card-header>
+      <ion-card-title>Your shipping address</ion-card-title>
+      <ion-card-subtitle style="margin-top: 2px;">
+        <ion-icon name="location-sharp"></ion-icon>
+        <ion-label>{{ userData?.address }}</ion-label>
+      </ion-card-subtitle>
+    </ion-card-header>
+  </ion-card>
+
+  <div class="cart-container">
+    <ion-list lines="full">
+      <ion-item *ngFor="let product of listProducts; let i = index">
+        <ion-avatar slot="start">
+          <img [src]="product.image">
+        </ion-avatar>
+        <ion-label>
+          <h2>{{ product.product_name }} x {{ product.quantity }}</h2>
+          <p>Rp. {{ product.product_price * product.quantity }}</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <!-- <ion-card class="card" *ngFor="let product of listProducts">
+    <ion-item>
+      <ion-avatar slot="start">
+        <img [src]="product.image">
+      </ion-avatar>
+      <ion-label>
+        <h2>{{ product.product_name }} x {{ product.quantity }}</h2>
+        <p>Rp. {{ product.product_price * product.quantity }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-card> -->
+
+  <ion-item class="shipping-option" lines="none">
+    <ion-label>Shipping Option</ion-label>
+    <ion-button slot="end" (click)="toggleShippingOptions()">Select</ion-button>
+  </ion-item>
+
+  <div *ngIf="showShippingOptions">
+    <ion-card class="shipping-card" (click)="selectShippingOption('pick_up')">
+      <ion-item lines="none">
+        <ion-avatar slot="start">
+          <img src="./../../../assets/pick_up.jpg">
+        </ion-avatar>
+        <ion-label>
+          <h2>Pick Up</h2>
+          <p>Ambil Pesanan Tanpa Antri Sekarang</p>
+        </ion-label>
+      </ion-item>
+    </ion-card>
+
+    <ion-card class="shipping-card" (click)="selectShippingOption('delivery')">
+      <ion-item lines="none">
+        <ion-avatar slot="start">
+          <img src="./../../../assets/delivery.jpg">
+        </ion-avatar>
+        <ion-label>
+          <h2>Delivery</h2>
+          <p>Antar Pesanan Ke Lokasi mu</p>
+        </ion-label>
+      </ion-item>
+    </ion-card>
+  </div>
+
+  <ion-footer>
+    <p>Total :</p>
+    <div class="info">
+      <p>Sub Total : </p>
+      <p class="value">Rp.{{totalPrice}}</p>
+    </div>
+    <div class="info">
+      <p>Shipping Fee : </p>
+      <p class="value">{{shippingPrice}}</p>
+    </div>
+    <p class="total-price">Rp.{{grandPrice}}</p>
+    <ion-button *ngIf="selectedShippingOption" expand="block" (click)="checkout()">Proceed to Payment</ion-button>
+  </ion-footer>
+</ion-content>

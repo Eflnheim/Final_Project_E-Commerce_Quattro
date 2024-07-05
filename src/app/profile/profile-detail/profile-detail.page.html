@@ -1,0 +1,44 @@
+<ion-content [fullscreen]="true">
+  <ion-header slot="fixed" class="ion-no-border">
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button default-href="/profile"></ion-back-button>
+      </ion-buttons>
+      <ion-title>Profile Detail</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="fill">
+  </div>
+  
+  <ion-card class="profile-card">
+    <ion-avatar class="profile-avatar">
+      <img src="./../../../assets/blank-profile-picture.png" />
+    </ion-avatar>
+
+    <ion-card-content>
+      <ion-item lines="none">
+        <ion-label>Username</ion-label>
+        <ion-note slot="end">{{dataUser?.username}}</ion-note>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-label>Phone</ion-label>
+        <ion-note slot="end">{{dataUser?.phone_number}}</ion-note>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-label>Email</ion-label>
+        <ion-note slot="end">{{dataUser?.email}}</ion-note>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-label>Address</ion-label>
+        <ion-note slot="end">{{dataUser?.address}}</ion-note>
+      </ion-item>
+    </ion-card-content>
+
+    <div class="edit-btn">
+      <ion-button routerLink="edit-profile">Edit Profile</ion-button>
+    </div>
+
+  </ion-card>
+
+</ion-content>

@@ -1,0 +1,70 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button default-href="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="primary">
+      <ion-menu-button auto-hide="false"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Cart</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Cart</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="container">
+    <h4>{{ listProducts.length }} Items added to cart</h4>
+    
+    <div class="cart-container">
+      <div class="empty-cart" *ngIf="listProducts.length === 0">
+        <ion-icon name="cart"></ion-icon>
+        <p>Your cart is empty</p>
+      </div>
+      <ion-list lines="full">
+        <ion-item-sliding *ngFor="let product of listProducts; let i = index">
+          <ion-item >
+            <ion-avatar slot="start">
+              <img [src]="product.image">
+            </ion-avatar>
+            <ion-label>
+              <h2>{{ product.product_name }}</h2>
+              <p>Rp. {{ product.product_price * product.quantity }}</p>
+            </ion-label>
+
+            <div class="actions">
+              <ion-buttons>
+                <ion-button (click)="increaseQty(i)">
+                  <ion-icon slot="icon-only" name="add"></ion-icon>
+                </ion-button>
+              </ion-buttons>
+              <ion-note>{{ product.quantity }}</ion-note>
+              <ion-buttons>
+                <ion-button (click)="decreaseQty(i)">
+                  <ion-icon slot="icon-only" name="remove"></ion-icon>
+                </ion-button>
+              </ion-buttons>
+            </div>
+          </ion-item>
+          <ion-item-options slot="end">
+            <ion-item-option (click)="confirmRemoveItem(i, product.product_name)">
+              <ion-icon slot="icon-only" color="danger" name="trash"></ion-icon>
+            </ion-item-option>
+          </ion-item-options>
+        </ion-item-sliding>
+      </ion-list>
+    </div>
+  </div>
+
+  <div class="container-2">
+    <p>Total:</p>
+    <h2>Rp. {{ totalPrice }}</h2>
+
+    <ion-button class="button-bottom" expand="block" routerLink="checkout" [disabled]="isCartEmpty()">Buy
+    </ion-button>
+  </div>
+</ion-content>

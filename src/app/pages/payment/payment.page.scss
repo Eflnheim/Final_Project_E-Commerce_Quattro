@@ -1,0 +1,33 @@
+ion-title.T1 {
+  text-align: center;
+}
+
+.card-1 {
+  --background: rgb(249, 249, 249);
+  margin: 16px;
+}
+
+.card-2 {
+  --background: rgb(249, 249, 249);
+  margin: 16px;
+}
+
+.item {
+  --background: rgb(249, 249, 249);
+  --ion-item-background: rgb(249, 249, 249);
+  padding: 10px;
+  border-radius: 8px;
+}
+
+ion-icon.icon {
+  font-size: 24px;
+  color: #3880ff; /* Ion blue color */
+  margin-right: 8px;
+}
+
+.sub-1 {
+  font-family: 'Poppins', sans-serif;
+  margin-left: 8px;
+  font-size: 16px;
+  src: url('https://fonts.googleapis.com');
+}

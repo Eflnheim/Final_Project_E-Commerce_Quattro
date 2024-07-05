@@ -1,0 +1,56 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button default-href="/home"></ion-back-button>
+    </ion-buttons>
+
+    <ion-buttons slot="secondary">
+      <ion-button routerLink="/cart">
+        <ion-icon slot="icon-only" name="cart"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    
+    <ion-buttons slot="primary">
+      <ion-menu-button auto-hide="false"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Products</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+  </ion-header>
+
+  <div class="container" *ngIf="product">
+    <div class="image">
+      <img [src]="product.image">
+    </div>
+
+    <div class="content">
+      <h4>{{ product.product_name }}</h4>
+      
+      <p class="p2">Rp. {{ product.product_price }}</p>
+
+      <p class="p1">{{ product.description }}</p>
+    </div>
+  </div>
+
+  <div class="container-2">
+    <h5 *ngIf="!isUserDataComplete()"> Please complete your profile information first</h5>
+
+    <ion-button id="open-toast" class="button-bottom" expand="block" (click)="addToCart()" [disabled]="!isUserDataComplete()">Add to Cart
+      <ion-icon slot="end" name="cart-outline"></ion-icon>
+    </ion-button>
+    <ion-toast *ngIf="product"
+      trigger="open-toast"
+      message="{{ product.product_name }} added to cart"
+      [duration]="300"
+      position="top"
+      mode="ios">
+    </ion-toast>
+  </div>
+  
+</ion-content>
+
+
+

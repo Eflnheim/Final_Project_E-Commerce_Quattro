@@ -1,0 +1,162 @@
+ion-toolbar{
+  --background: black;
+  --padding-top: 10px;
+  --padding-bottom: 10px;
+
+  ion-searchbar{
+    --background: #a8a8a8;
+    --border-radius: 1.2rem;
+    --color: white;
+    --placeholder-color: white;
+    --icon-color: white;
+    --clear-button-color: white;
+    --placeholder-opacity: 0.75;
+    margin-left: 15px;
+    width: 70%;
+    transition: width 0.3s ease;  
+  }
+
+  ion-searchbar.active {
+    width: 95%;  
+  }
+
+}
+
+ion-content{
+  --background : black;
+}
+
+.card{
+  margin-top: 15px;
+  width: 100%;
+  height: max-content;
+  background: white;
+  padding-bottom: 10px;
+  border-top-left-radius: 2rem;
+  border-top-right-radius: 2rem;
+  padding: 2rem 0.75rem; 
+}
+
+/* Gaya untuk swiper-container */
+.card swiper-container {
+  width: 95%;
+  height: 15% !important;
+  border-radius: 8px;
+  margin-bottom: 10px;
+
+  swiper-slide{
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+  }
+
+  .swiper {
+    width: 100%;
+    height: 100%;
+  }
+
+}
+
+ion-card.product-card{
+  --background: #f5f5f5;
+  height: 12rem;
+  margin: 0.3rem 0.3rem;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+  box-shadow: none;
+  
+  ion-thumbnail {
+    width: 100%;
+    height: 8rem;
+    margin-bottom: 5px;
+
+    ion-img{
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  ion-label {
+    display: flex;
+    flex-direction: column;
+    padding:0 5px;
+
+    .bold {
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: black;
+    }
+  }
+
+  p {
+    font-size: 0.95rem;
+    margin-top: 8px;
+    
+    ion-text.rating {
+      float:  right;
+      ion-icon {
+        font-size: 0.8rem;
+      }
+    }
+  }
+}
+
+.card-3 {
+  width: 100%;
+  height: 100%;
+  background: white;
+  position: absolute;
+  bottom: 100;
+  margin-top: 15px;
+  padding-bottom: 10px;
+  border-top-left-radius: 2rem;
+  border-top-right-radius: 2rem;
+  padding: 1.5rem; 
+}
+
+
+.category-container {
+  margin-left: 5px;
+  margin-right: 5px;
+
+  ion-row {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  ion-card {
+    border-radius: 8px;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #e7e7e7;
+    padding: 5px;
+    margin: 5px;
+    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.2);
+  
+    ion-thumbnail {
+      margin-bottom: 5px;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  
+    ion-label {
+      font-size: 0.75rem;
+      color: black;
+    }
+
+    &.active-category {
+      background-color: rgb(200, 200, 200); 
+    }
+  }
+}
+

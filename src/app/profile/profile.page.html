@@ -1,0 +1,55 @@
+<ion-content [fullscreen]="true">
+  <ion-header slot="fixed" class="ion-no-border">
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button default-href="/home"></ion-back-button>
+      </ion-buttons>
+      <ion-title>Profile</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="fill">
+  </div>
+  
+  <ion-card class="profile-card">
+    <ion-avatar class="profile-avatar">
+      <img src="./../../assets/blank-profile-picture.png" />
+    </ion-avatar>
+    
+    <ion-card-content>
+      <ion-card-title>{{ dataUser?.username }}</ion-card-title>
+      <h5 *ngIf="!isUserDataComplete()">You havent completed your information yet</h5>
+      <ion-item lines="none">
+        <ion-label>Phone</ion-label>
+          <ng-template [ngIf]="dataUser?.phone_number === null" [ngIfElse]="elseBlock">
+            <ion-note slot="end">0000-0000-0000-0000</ion-note>
+          </ng-template>
+          <ng-template #elseBlock>
+            <ion-note slot="end">{{ dataUser?.phone_number }}</ion-note>
+          </ng-template>        
+      </ion-item>
+      <ion-item lines="none">
+        <ion-label>Email</ion-label>
+        <ion-note slot="end">{{ dataUser?.email }}</ion-note>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+
+
+  <ion-card class="list-card">
+    <h3>Your Account</h3>
+    <ion-list lines="none">
+      <ng-container *ngFor="let p of profileItemList; let i = index">
+        <ion-item [routerLink]="[p.url]">
+          <ion-icon name="{{p.icon}}" slot="start"></ion-icon>
+          <ion-label>{{p.label}}</ion-label>
+          <ion-icon class="arrow" name="chevron-forward-outline" slot="end"></ion-icon>
+        </ion-item>
+      </ng-container>
+    </ion-list>
+  </ion-card>
+
+
+
+</ion-content>
